@@ -19,7 +19,7 @@ phases:
       - docker login docker.io -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker push $DOCKER_USERNAME/docker-react
       - echo "updated line for codebuild ci"
-      - cp -r scripts/ artifacts/scripts/
+      - cp -r scripts/ artifacts/
       - cp appspec.yml artifacts/
 artifacts:
   files:
