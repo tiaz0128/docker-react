@@ -1,6 +1,10 @@
 
 version: 0.2
-
+env:
+  parameter-store:
+    DOCKER_USERNAME: "/CodeBuild/DOCKER_PASSWORD"
+    DOCKER_PASSWORD: "/CodeBuild/DOCKER_USERNAME"
+    
 phases:
   build:
     commands:
