@@ -21,6 +21,7 @@ phases:
       - echo "updated line for codebuild ci"
       - cp -r scripts/ artifacts/
       - cp appspec.yml artifacts/
+      - ls -al artifacts
 artifacts:
   files:
     - "**/*"
