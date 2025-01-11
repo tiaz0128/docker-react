@@ -7,6 +7,9 @@ env:
     
 phases:
   build:
+    pre_build:
+      commands:
+        - mkdir -p artifacts    # artifacts 디렉토리 생성
     commands:
       - echo "Docker Build"
       - docker build -t $DOCKER_USERNAME/docker-react .
@@ -17,3 +20,10 @@ phases:
       - docker login docker.io -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker push $DOCKER_USERNAME/docker-react
       - echo "updated line for codebuild ci"
+      - cp -r scripts/ /artifacts/
+      - cp appspec.yml /artifacts/
+artifacts:
+  files:
+    - scripts/**/*    # scripts 폴더의 모든 파일
+    - appspec.yml
+  base-directory: artifacts
