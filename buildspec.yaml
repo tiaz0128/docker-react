@@ -5,10 +5,10 @@ env:
     DOCKER_PASSWORD: "/CodeBuild/DOCKER_PASSWORD"
     
 phases:
+  pre_build:
+    commands:
+      - mkdir -p artifacts    # artifacts 디렉토리 생성
   build:
-    pre_build:
-      commands:
-        - mkdir -p artifacts    # artifacts 디렉토리 생성
     commands:
       - echo "Docker Build"
       - docker build -t $DOCKER_USERNAME/docker-react .
@@ -25,3 +25,4 @@ phases:
 artifacts:
   files:
     - "**/*"
+  base-directory: artifacts
