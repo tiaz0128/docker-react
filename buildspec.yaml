@@ -24,6 +24,4 @@ phases:
       - ls -al artifacts
 artifacts:
   files:
-    - "scripts/**/*"
-    - "appspec.yml"
-  base-directory: artifacts
+    - "**/*"
