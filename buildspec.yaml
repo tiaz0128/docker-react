@@ -23,5 +23,6 @@ phases:
       - cp appspec.yml artifacts/
 artifacts:
   files:
-    - "**/*"    # artifacts 폴더의 모든 파일
+    - scripts/**/*   # scripts 폴더의 모든 파일
+    - appspec.yml    # appspec.yml 파일
   base-directory: artifacts
