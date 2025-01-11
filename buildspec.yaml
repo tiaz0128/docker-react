@@ -1,0 +1,15 @@
+
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Hello World"
+      - docker build -t tiaz0128/fast-api -f dockerfiles/back.Dockerfile .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker login docker.io -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker push tiaz0128/fast-api
+      - echo "updated line for codebuild ci"
