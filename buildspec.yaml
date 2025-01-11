@@ -8,6 +8,9 @@ phases:
   pre_build:
     commands:
       - mkdir -p artifacts    # artifacts 디렉토리 생성
+      - cp -r scripts/ artifacts/
+      - cp appspec.yml artifacts/
+      - ls -al artifacts
   build:
     commands:
       - echo "Docker Build"
@@ -19,9 +22,6 @@ phases:
       - docker login docker.io -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker push $DOCKER_USERNAME/docker-react
       - echo "updated line for codebuild ci"
-      - cp -r scripts/ artifacts/
-      - cp appspec.yml artifacts/
-      - ls -al artifacts
 artifacts:
   files:
     - "**/*"

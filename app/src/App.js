@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          EC2 Docker 배포 - Learn React
         </a>
       </header>
     </div>
