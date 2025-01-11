@@ -9,11 +9,11 @@ phases:
   build:
     commands:
       - echo "Docker Build"
-      - docker build -t tiaz0128/docker-react .
+      - docker build -t $DOCKER_USERNAME/docker-react .
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker login docker.io -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - docker push tiaz0128/docker-react
+      - docker push $DOCKER_USERNAME/docker-react
       - echo "updated line for codebuild ci"
